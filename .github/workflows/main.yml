@@ -1,0 +1,25 @@
+name: build
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Java setup
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: 8
+          check-latest: true
+      - name: Build
+        run: ./flamecord b
+      - name: Jar upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: lbplusplus-0.3
+          path: FlameCord-Proxy/bootstrap/target
