@@ -26,4 +26,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: flamecord
-          path: FlameCord-Proxy/bootstrap/target
+          path: FlameCord-Proxy/bootstrap/target/FlameCord.jar
